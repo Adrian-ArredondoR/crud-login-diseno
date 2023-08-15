@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('Css/bootstrap.min.css') }}">
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            {#{{ encore_entry_link_tags('app') }}#}
+        {% endblock %}
+
+        {% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
+        {% endblock %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    </head>
+
+
+            <style>
+            .flexbox-margin-auto {
+           
+
+            height: 100px;
+            width: 1990px;
+
+            background: #ffff99;
+            color: #333; 
+            }
+
+            .contenedor
+            {
+                
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="contenedor">
+               
+        <div class="flexbox-margin-auto">
+            <div class="flexbox-margin-auto__content">
+                  
+            
+                     <h3>Crud de tareas - Harman</h3>
+          
+                     </div>
+            </div>
+
+
+        </div>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/registro">Registrate</a>
+        </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/datos/ind">Lista de tareas</a>
+        </li>
+      </ul>
+      <!--
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>-->
+    </div>
+  </div>
+</nav>
+        <script src="{{ asset('Js/jquery-3.3.1.slim.min.js')}}"></script>
+        <script src="{{ asset('Js/bootstrap.min.js')}}"></script>
+        {% block body %}{% endblock %}
+    </body>
+</html>

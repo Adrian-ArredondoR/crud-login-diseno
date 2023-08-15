@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lista de tareas{% endblock %}
+
+{% block body %}
+  
+  <style type ="text/css">
+.btdelete
+{
+    background:red;
+    color: black;
+    border: 4px solid red;
+}  
+.btcrear
+{
+    background:red;
+    color: black;
+    border: 6px solid #A5FF60;
+} 
+.boton1{
+    text-decoration: none;
+    display:inline-block;
+    width:5%;
+    padding:25px;
+    
+    border-radius:50px;
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+    transition: all 0.9s;
+    text-align: center;
+    font-size: 12px;
+  }
+  .boton1:hover{
+    background:#A5FF60;
+    color:white;
+  }
+  .contenedor
+  {
+    text-align: center;
+  }
+
+  
+  
+  </style>
+    <div class="contenedor">
+        <h2>Lista de tareas</h2>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Clasificacion</th>
+                <th>Fecha de inicio</th>
+                <th>Fecha de cierre</th>
+                <th>Descripcion</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for dato in datos %}
+            <tr>
+                <td>{{ dato.id }}</td>
+                <td>{{ dato.Nombre }}</td>
+                <td>{{ dato.Clasificacion }}</td>
+                <td>{{ dato.fechainicio ? dato.fechainicio|date('Y-m-d') : '' }}</td>
+                <td>{{ dato.fechacierre ? dato.fechacierre|date('Y-m-d') : '' }}</td>
+                <td>{{ dato.descripcion }}</td>
+                <td>
+                
+                    <a href="{{ path('datos_show', {'id': dato.id}) }}"  class="boton1">Mostrar</a>
+                    <a href="{{ path('datos_edit', {'id': dato.id}) }} " class="boton1">Editar</a>
+                      <a href="{{ path('datos_delete', {'id': dato.id}) }}" class="boton1">Eliminar </a>   
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">NO existen tareas</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+  <a href="{{ path('datos_new') }}" class="boton1">  Crear tarea nueva  </a>
+{% endblock %}
